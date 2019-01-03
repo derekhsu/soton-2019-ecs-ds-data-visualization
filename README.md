@@ -1,5 +1,7 @@
 # nba-draft
 
+A data visualization project for Data Visualization coursework at University of Southampton
+
 ## Project setup
 ```
 npm install

@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <Report></Report>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld'
+import D3Test from "./components/D3Test";
+import Legends from "./components/Legends";
+import Report from "./components/Report";
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HelloWorld,
+    Legends,
+    D3Test,
+    Report
   }
 }
 </script>
