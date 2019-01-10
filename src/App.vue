@@ -7,17 +7,11 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-import D3Test from "./components/D3Test";
-import Legends from "./components/Legends";
 import Report from "./components/Report";
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
-    Legends,
-    D3Test,
     Report
   }
 }

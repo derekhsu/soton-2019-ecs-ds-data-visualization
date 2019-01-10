@@ -11,8 +11,7 @@
                 <div id="scatter-plot-pts">                    
                     <vue-c3 :handler="handlerPts"></vue-c3>
                 </div>
-            </b-col>
-            <b-col id="title-rebounds">
+            </b-col><b-col id="title-rebounds">
                 <h2 class="title my-0" >Total Rebounds</h2>
                 <div id="scatter-plot-trb">
                     <vue-c3 :handler="handlerTrb"></vue-c3>
@@ -104,7 +103,7 @@
 
 import Vue from 'vue'
 import * as d3 from "d3";
-import VueC3 from 'vue-c3'
+import VueC3 from 'vue-c3';
 import { Layout } from 'bootstrap-vue/es/components';
 import { Button } from 'bootstrap-vue/es/components';
 import legend from 'd3-svg-legend';
@@ -171,8 +170,8 @@ export default {
         const optionsCompare = {
             bindto: "#bar-compare",
             size: {
-                width: 300,
-                height: 200
+                width: 350,
+                height: 300
             },
             data: {
                 x: "Category",
@@ -185,8 +184,9 @@ export default {
                 x: {
                     type: 'category',
                     tick: {
-                        fit: false                                                                                   
-                    }                
+                        fit: true                                                                                
+                    },
+                    width: 120
                 },
                 y: {
                     label: "Stats",
@@ -205,8 +205,8 @@ export default {
         const optionsCompare2 = {
             bindto: "#bar-compare-2",
             size: {
-                width: 300,
-                height: 200
+                width: 350,
+                height: 300
             },
             data: {
                 x: "Category",
@@ -219,12 +219,14 @@ export default {
                 x: {
                     type: 'category',
                     tick: {
-                        fit: false
-                    }                        
+                        fit: true
+                    },
+                    width: 120                   
                 },
                 y: {
-                    label: "Percentage(%)",
-                    min: 0,
+                    label: "Percentage(%)",                    
+                    fit: true,
+                    outer: true,
                     max: 100,
                     tick: {
                         outer: true,
@@ -274,13 +276,13 @@ export default {
                     columnsPercentage = [
                         ['Category', 'FG%', '3PT%', 'FT%'],
                         ['College Stats', 
-                        Number.parseFloat(player['FG%_C']).toFixed(3)*100, 
-                        Number.parseFloat(player['3P%_C']).toFixed(3)*100, 
-                        Number.parseFloat(player['FT%_C']).toFixed(3)*100],
+                        (Number.parseFloat(player['FG%_C'])*100).toFixed(1).toString(), 
+                        (Number.parseFloat(player['3P%_C'])*100).toFixed(1).toString(), 
+                        (Number.parseFloat(player['FT%_C'])*100).toFixed(1).toString()],
                         ['League Stats', 
-                        Number.parseFloat(player['FG%']).toFixed(3)*100, 
-                        Number.parseFloat(player['3P%']).toFixed(3)*100, 
-                        Number.parseFloat(player['FT%']).toFixed(3)*100]
+                        (Number.parseFloat(player['FG%'])*100).toFixed(1).toString(), 
+                        (Number.parseFloat(player['3P%'])*100).toFixed(1).toString(), 
+                        (Number.parseFloat(player['FT%'])*100).toFixed(1).toString()]
                     ]
                 }
             });
@@ -324,8 +326,8 @@ export default {
             const options = {
                 "bindto": bindto,
                 size: {
-                    width: 250,
-                    height: 250
+                    width: 300,
+                    height: 300
                 },
                 data: {
                     xs: nameMap,
@@ -341,7 +343,7 @@ export default {
                         label: xlabel,
                         tick: {
                             fit: false
-                        }
+                        }                        
                     },
                     y: {
                         label: ylabel,     
@@ -383,12 +385,12 @@ export default {
                 .range([d3.interpolateRdYlGn(0), d3.interpolateRdYlGn(0.2), d3.interpolateRdYlGn(0.4), d3.interpolateRdYlGn(0.8)]);
 
             var svg = d3.select(bindto+" svg")
-                .attr('width', 300)
-                .attr("hidth", 300)
+                .attr('width', 380)
+                .attr("hidth", 380)
 
             svg.append('g')
                 .attr('class', 'legendLinear')
-                .attr('transform', 'translate(220, 20)');
+                .attr('transform', 'translate(290, 20)');
             
             var legendLinear = legend.legendColor()
                 .labelFormat(d3.format("0d"))
@@ -412,19 +414,21 @@ export default {
 
 <style lang="sass">
 h1.title 
-    font-size: 1em
+    font-size: 1.4em
 h2.title
-    font-size: 0.7em
+    font-size: 1.0em
 h3.title
     font-size: 0.5em
 .c3-axis-y-label
-    font-size: 12px
+    font-size: 14px
+.c3-axis-x-label
+	font-size: 14pt    
 .c3-legend-item
     font-size: 12px    
 .nba-legendTitle
-    font-size: 12px
+    font-size: 12pt
 .nba-label
-    font-size: 12px
+    font-size: 10pt
 #container-chart3
     min-height: 100%;
     height: 100%;    

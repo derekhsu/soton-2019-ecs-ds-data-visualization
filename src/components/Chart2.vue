@@ -124,8 +124,8 @@ export default {
                 scope: 'world',                
                 element: document.getElementById('map'),
                 projection: 'mercator',
-                height: window.innerHeight/2 - 50,
-                width: 400,
+                height: window.innerHeight/2,
+                width: 500,
                 fills: {
                     defaultFill: d3.color("gray"),
                     lt50: 'rgba(0,244,244,0.9)',
@@ -153,7 +153,7 @@ export default {
                         const options = {
                             size: {
                                 width: 700,
-                                height: 200
+                                height: 250
                             },
                             data: {
                                 x: 'Player',
@@ -192,8 +192,8 @@ export default {
                                     ];                                    
                                     
                                     RadarChart("#player", player_data, {
-                                        w: 140,
-                                        h: 140,
+                                        w: 190,
+                                        h: 190,
                                         levels: 4,
                                         labelFactor: 1.1,
                                         maxValue: 1
@@ -288,7 +288,7 @@ export default {
 
             svg.append("g")
                 .attr("class", "legendOrdinal")
-                .attr("transform", "translate(20, 20)");
+                .attr("transform", "translate(20, 300)");
                         
             var legendOrdinal = legend.legendColor()
                  .shape("path", d3.symbol().type(d3.symbolSquare).size(150)())
@@ -517,8 +517,8 @@ function RadarChart(id, data, options) {
 		.style("fill", "none")
 		.style("pointer-events", "all")
 		.on("mouseover", function(d,i) {
-			newX =  parseFloat(d3.select(this).attr('cx')) - 10;
-			newY =  parseFloat(d3.select(this).attr('cy')) - 10;
+			var newX =  parseFloat(d3.select(this).attr('cx')) - 10;
+			var newY =  parseFloat(d3.select(this).attr('cy')) - 10;
 					
 			tooltip
 				.attr('x', newX)
@@ -574,17 +574,21 @@ function RadarChart(id, data, options) {
 
 <style lang="sass">
 h1.title 
-    font-size: 1em
+    font-size: 1.4em
 h2.title
-    font-size: 0.7em
+    font-size: 1.0em
 h3.title
-    font-size: 0.5em
+    font-size: 0.8em
 .c3-axis-y-label
     font-size: 12px    
+.c3-axis-x-label
+	font-size: 14pt
 .nba-legendTitle
-    font-size: 12px
+    font-size: 14pt
 .nba-label
-    font-size: 12px   
+    font-size: 14pt   
+.legend
+	font-size: 12pt	
 .c3-axis-y
 	.tick
 		font-size: 12px

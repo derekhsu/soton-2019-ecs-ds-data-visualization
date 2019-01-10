@@ -1,9 +1,9 @@
 <template>              
     <b-container fluid id="v-step-0">
-        <b-row id="top">
+        <b-row id="top" class="mx-auto">
             <vue-c3 :handler="handler"></vue-c3>
         </b-row> 
-        <b-row id="down">
+        <b-row id="down" class="mx-auto">
             <vue-c3 :handler="handler2"></vue-c3>
         </b-row>  
         <v-tour name="page2" :steps="steps" :callbacks="tourCallbacks" :options="{startTimeout: 1000}"></v-tour>           
@@ -181,8 +181,8 @@ function bindto(colleges, v, mean_ws, handler, bindto, title) {
     const options = {
         "bindto": bindto,
         size: {
-            width: 800,
-            height: 280
+            width: 1024,
+            height: window.innerHeight / 2 - 50
         },
         padding: {
             top: 20
@@ -208,15 +208,18 @@ function bindto(colleges, v, mean_ws, handler, bindto, title) {
                 type: 'category',
                 tick: {
                     rotate: 90,    
-                    //fit: false,                        
-                    multiline: false,
+                    fit: true,  
+                    multiline: true,
+                    multilineMax: 2,                
                     culling: false,
-                    outer: false
+                    outer: false,
+                    width: 150
                 },
                 height: 150
             },
             y: {
                 tick: {
+                    outer: true,
                     values: [0, 10, 20, 30, 40]
                 }
             }
@@ -268,7 +271,7 @@ function bindto(colleges, v, mean_ws, handler, bindto, title) {
             
             svgLegend.append("text")
                 .attr("class", "legendTitle")
-                .attr("x", 550)
+                .attr("x", 820)
                 .attr("y", 25)
                 .style("text-anchor", "left")                
                 .text("Average WS");
@@ -282,7 +285,7 @@ function bindto(colleges, v, mean_ws, handler, bindto, title) {
                 .text(title);
 
             svgLegend.append("rect")
-                .attr("x", 550)
+                .attr("x", 820)
                 .attr("y", 30)
                 .attr("width", 150)
                 .attr("height", 10)
@@ -298,7 +301,7 @@ function bindto(colleges, v, mean_ws, handler, bindto, title) {
             svgLegend
                 .attr("class", "axis")
                 .append("g")
-                .attr("transform", "translate(550, 30)")
+                .attr("transform", "translate(820, 30)")
                 .call(axisLeg);
         }
     };    
@@ -312,14 +315,14 @@ function bindto(colleges, v, mean_ws, handler, bindto, title) {
 
 .c3-axis-x   
     text
-        font-size: 10px
+        font-size: 9pt
 .legendTitle
-    font-size: 12px
+    font-size: 12pt
 .chartTitle    
-    font-size: 0.7em    
+    font-size: 2em    
 .v-step
-    font-size: 0.7em    
+    font-size: 1em    
 .v-step__button
-    font-size: 0.7em
+    font-size: 1em
 </style>
 
