@@ -11,6 +11,7 @@
                     </ol>                                        
                 </p>
                 <p class="ml-auto">Data Source: <a href="https://www.basketball-reference.com/draft/" target="_blank">basketball-refernce</a>, all drafted players from US Colleges (2000 to 2018)</p>
+                <p class="small">Please use <a href="https://www.google.com/chrome/" target="_blank">Chrome browser <img src="http://www.iconarchive.com/download/i63349/cornmanthe3rd/plex/Internet-chrome.ico" width="36" height="36" /> </a> for obtaining the best quality.</p>
                 <b-button variant="primary" size="small" @click="btnClickPage1">Start Tour</b-button>
             </div>
             <div class="section" data-anchor="page2" id="section1">                
@@ -28,7 +29,7 @@
                     and if there is no one in that country was drafted,  <br/>
                     it is coloured with gray. 
                 </p>
-                <p class="ml-auto">Data Source: <a href="https://www.basketball-reference.com/draft/" target="_blank">basketball-refernce</a>, all international players (2000 to 2018)</p>
+                <p class="ml-auto">Data Source: <a href="https://www.basketball-reference.com/draft/" target="_blank">basketball-refernce</a>, all international players (2000 to 2018)</p>                
                 <b-button variant="primary" size="small" @click="btnClickPage2">Start Tour</b-button>
             </div>
             <div class="section" data-anchor="page4" id="section3">                
